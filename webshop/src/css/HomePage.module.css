@@ -1,0 +1,8 @@
+.image{
+    width: 100px;
+}
+.inactive_image{
+    width: 100px;
+    filter: grayscale(100%);
+    opacity: 50%;
+}

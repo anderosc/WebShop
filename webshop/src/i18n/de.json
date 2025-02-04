@@ -1,0 +1,29 @@
+{
+    "navbar_home": "Startseite",
+    "navbar_shops": "Geschäfte",
+    "navbar_cart": "Warenkorb",
+    "navbar_contact": "Kontakt",
+    "navbar_add_product": "Produkt hinzufügen",
+    "navbar_maintain_products": "Produkte verwalten",
+    "navbar_maintain_categories": "Kategorien verwalten",
+    "navbar_maintain_shops": "Geschäfte verwalten",
+    "navbar_login": "Anmelden",
+    "navbar_signup": "Registrieren",
+    
+      "homepage_sort_az": "Sortiere A - Z",
+      "homepage_sort_za": "Sortiere Z - A",
+      "homepage_sort_price_desc": "Sortiere Preis ⬇",
+      "homepage_sort_price_asc": "Sortiere Preis ⬆",
+      "homepage_sort_rating_desc": "Sortiere Bewertung ⬇",
+      "homepage_sort_rating_asc": "Sortiere Bewertung ⬆",
+      "homepage_filter": "Filter",
+      "homepage_filter_electronics": "Elektronik",
+      "homepage_filter_womens_clothing": "Damenbekleidung",
+      "homepage_filter_mens_clothing": "Herrenbekleidung",
+      "homepage_filter_jewelery": "Schmuck",
+      "homepage_view_details": "Details anzeigen",
+      "homepage_add_to_cart": "In den Warenkorb",
+      "homepage_product_added": "Produkt wurde zum Warenkorb hinzugefügt!"
+    
+
+  }

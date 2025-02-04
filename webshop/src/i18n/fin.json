@@ -1,0 +1,29 @@
+{
+    "navbar_home": "Etusivu",
+    "navbar_shops": "Kaupat",
+    "navbar_cart": "Ostoskori",
+    "navbar_contact": "Yhteystiedot",
+    "navbar_add_product": "Lisää tuote",
+    "navbar_maintain_products": "Hallinnoi tuotteita",
+    "navbar_maintain_categories": "Hallinnoi kategorioita",
+    "navbar_maintain_shops": "Hallinnoi kauppoja",
+    "navbar_login": "Kirjaudu sisään",
+    "navbar_signup": "Rekisteröidy",
+    
+      "homepage_sort_az": "Lajittele A - Z",
+      "homepage_sort_za": "Lajittele Z - A",
+      "homepage_sort_price_desc": "Lajittele hinta ⬇",
+      "homepage_sort_price_asc": "Lajittele hinta ⬆",
+      "homepage_sort_rating_desc": "Lajittele arvostelu ⬇",
+      "homepage_sort_rating_asc": "Lajittele arvostelu ⬆",
+      "homepage_filter": "Suodata",
+      "homepage_filter_electronics": "Elektroniikka",
+      "homepage_filter_womens_clothing": "Naisten vaatteet",
+      "homepage_filter_mens_clothing": "Miesten vaatteet",
+      "homepage_filter_jewelery": "Korut",
+      "homepage_view_details": "Näytä tiedot",
+      "homepage_add_to_cart": "Lisää ostoskoriin",
+      "homepage_product_added": "Tuote lisätty ostoskoriin!"
+        
+
+  }

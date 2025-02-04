@@ -1,0 +1,33 @@
+{
+    "navbar_home": "Home",
+    "navbar_shops" : "Shops",
+    "navbar_cart" : "Cart",
+    "navbar_contact" : "Contact",
+    "navbar_add_product" : "Add Product",
+    "navbar_maintain_products" : "Maintain Products",
+    "navbar_maintain_categories" : "Maintain categories",
+    "navbar_maintain_shops" : "Maintain Shops",
+    "navbar_login" : "Log In",
+    "navbar_signup" : "Sign Up",
+    
+      "homepage_sort_az": "Sort A - Z",
+      "homepage_sort_za": "Sort Z - A",
+      "homepage_sort_price_desc": "Sort Price ⬇",
+      "homepage_sort_price_asc": "Sort Price ⬆",
+      "homepage_sort_rating_desc": "Sort Rating ⬇",
+      "homepage_sort_rating_asc": "Sort Rating ⬆",
+      "homepage_filter": "Filter",
+      "homepage_filter_electronics": "Electronics",
+      "homepage_filter_womens_clothing": "Women's Clothing",
+      "homepage_filter_mens_clothing": "Men's Clothing",
+      "homepage_filter_jewelery": "Jewelery",
+      "homepage_view_details": "View Details",
+      "homepage_add_to_cart": "Add to Cart",
+      "homepage_product_added": "Product added to cart!"
+    
+    
+
+
+
+
+  }

@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Kristiine",
+    "lat": 59.4271,
+    "long": 24.7235,
+    "address": "Endla 45, 10615 Tallinn, Estonia",
+    "town": "",
+    "href": "https://www.google.com/maps/place/Kristiine+center/@59.427247,24.7205042,17z/data=!3m1!4b1!4m6!3m5!1s0x4692948ff56ecd75:0x4f0fde99c451563a!8m2!3d59.4272443!4d24.7230791!16s%2Fm%2F0w7mjwq?entry=ttu&g_ep=EgoyMDI1MDEyNy4wIKXMDSoASAFQAw%3D%3D"
+  },
+  {
+    "name": "Ülemiste",
+    "lat": 59.422037,
+    "long": 24.7943926,
+    "address": "Suur-Sõjamäe tn 4, 11415 Tallinn",
+    "town": "",
+    "href": "https://www.google.com/maps/place/%C3%9Clemiste+keskus/@59.421939,24.789259,17z/data=!3m1!4b1!4m6!3m5!1s0x4692eb54f4edfe43:0x206e6dcbdf41435e!8m2!3d59.4219391!4d24.793867!16s%2Fm%2F0hrdb05?entry=ttu&g_ep=EgoyMDI1MDEyOC4wIKXMDSoASAFQAw%3D%3D"
+  },
+  {
+    "name": "Põltsamaa Selver",
+    "lat": 58.654316,
+    "long": 25.98072,
+    "address": "Jõgeva mnt 1a, Põltsamaa, 48105 Jõgeva maakond",
+    "town": "",
+    "href": "https://www.google.com/maps/place/P%C3%B5ltsamaa+Selver/@58.654233,25.9778957,17z/data=!3m1!4b1!4m6!3m5!1s0x46ecab623cd76279:0x9e958d258fabc3af!8m2!3d58.654233!4d25.980476!16s%2Fg%2F11xb1d4sx?entry=ttu&g_ep=EgoyMDI1MDEyOC4wIKXMDSoASAFQAw%3D%3D"
+  },
+  {
+    "name": "Kagukeskus",
+    "lat": 57.848061,
+    "long": 27.012113,
+    "address": "Kooli tn 6, Võru, 65606 Võru maakond",
+    "town": "",
+    "href": "https://www.google.com/maps/place/Kagukeskus/@57.8347216,26.9811289,13z/data=!4m15!1m8!3m7!1s0x46eb36d8d55d3df7:0x400b36d18fc6d10!2sTartu!3b1!8m2!3d58.377983!4d26.7290383!16zL20vMDdzYjE!3m5!1s0x46eafadcf273a8b5:0x4c84c782ba1b4fe1!8m2!3d57.8461001!4d27.0080449!16s%2Fg%2F11xvx0t58?entry=ttu&g_ep=EgoyMDI1MDEyOC4wIKXMDSoASAFQAw%3D%3D"
+  },
+  {
+    "name": "Tartu Kaubamaja",
+    "lat": 58.37796,
+    "long": 26.72818,
+    "address": "Riia tn 1, 51004 Tartu",
+    "town": "",
+    "href": "https://www.google.com/maps/place/Tartu+Kaubamaja/@58.3770854,26.7253481,17z/data=!4m15!1m8!3m7!1s0x46eb36d8d55d3df7:0x400b36d18fc6d10!2sTartu!3b1!8m2!3d58.377983!4d26.7290383!16zL20vMDdzYjE!3m5!1s0x46eb36de6997dcc3:0xe272698db05c750a!8m2!3d58.3779418!4d26.7283258!16s%2Fg%2F125_j7_f6?entry=ttu&g_ep=EgoyMDI1MDEyOC4wIKXMDSoASAFQAw%3D%3D"
+  }
+]

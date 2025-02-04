@@ -1,0 +1,30 @@
+{
+    "navbar_home": "Avaleht",
+    "navbar_shops" : "Poed",
+    "navbar_cart" : "Ostukorv",
+    "navbar_contact" : "Kontakt",
+    "navbar_add_product" : "Lisa toode",
+    "navbar_maintain_products" : "Halda tooteid",
+    "navbar_maintain_categories" : "Halda kategooriaid",
+    "navbar_maintain_shops" : "Halda poode",
+    "navbar_login" : "Logi sisse",
+    "navbar_signup" : "Registeeru",
+    
+      "homepage_sort_az": "Sorteeri A - Z",
+      "homepage_sort_za": "Sorteeri Z - A",
+      "homepage_sort_price_desc": "Sorteeri hind ⬇",
+      "homepage_sort_price_asc": "Sorteeri hind ⬆",
+      "homepage_sort_rating_desc": "Sorteeri hinnang ⬇",
+      "homepage_sort_rating_asc": "Sorteeri hinnang ⬆",
+      "homepage_filter": "Filtreeri",
+      "homepage_filter_electronics": "Elektroonika",
+      "homepage_filter_womens_clothing": "Naiste riided",
+      "homepage_filter_mens_clothing": "Meeste riided",
+      "homepage_filter_jewelery": "Ehted",
+      "homepage_view_details": "Vaata lähemalt",
+      "homepage_add_to_cart": "Lisa ostukorvi",
+      "homepage_product_added": "Toode lisati ostukorvi!"
+    
+    
+
+  }
