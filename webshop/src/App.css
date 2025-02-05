@@ -3,22 +3,17 @@
   text-align: center;
 }
 
-
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
 th, td{
   border: 1px, solid black;
+}
+.icon{
+  width: 25px;
+  height: 25px;
+}
+.icon:hover{
+  cursor: pointer;
+  opacity: 70%;
+}
+.icon:active{
+  transform: scale(105%)
 }

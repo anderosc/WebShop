@@ -1,9 +1,11 @@
 import { Link, useParams } from "react-router-dom"
 import productsData from "../../data/products.json"
 import { useRef } from "react";
+import styles from "../../css/Cart.module.css"
 
 
 function EditProduct() {
+  // JSON.stringify(product)
   const {index} = useParams();
   const found = productsData[index]
   const idRef = useRef();
@@ -30,15 +32,15 @@ function EditProduct() {
     };
   }
 
-
-
-  // maintainproducts vt
-  // const index = productsFile.findIndex(product => product.id === id);
-
-
   return (
     <div>
     <label htmlFor=""> Id:</label>
+
+
+    {/* useRef asemel */}
+    {/* <input  onChange={(e) => setProducts({...product,  "image" : e.target.value})} type="text" defaultValue={found.id} /> <br /> */}
+    {/* ...product sama mis product => usestate sees */}
+
     <input ref={idRef} type="text" defaultValue={found.id} /> <br />
     <label htmlFor=""> Title:</label>
     <input ref={titleRef} type="text" defaultValue={found.title} /> <br />

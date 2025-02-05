@@ -10,9 +10,17 @@ function HomePage() {
   const { t } = useTranslation();
   const [products, setProducts] = useState(productsFromFile);
 
-  const addToCart = (product) =>{
+  const addToCart = (productClicked) =>{
       const cartLocalStorage = JSON.parse(localStorage.getItem("cart")) || [];
-      cartLocalStorage.push(product);
+      const found = cartLocalStorage.find(cartProduct => cartProduct.toode.id === productClicked.id)
+      if(found !== undefined){
+        //suurenda kogust
+          found.kogus++
+      }else{
+        cartLocalStorage.push({"kogus" : 1, "toode" : productClicked});
+        //lisa loppu
+      }
+
       localStorage.setItem("cart", JSON.stringify(cartLocalStorage));
       toast(t("homepage_product_added"));
   }
