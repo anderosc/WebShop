@@ -50,7 +50,7 @@ function MaintainProducts() {
               </tr>
           </thead>
           <tbody>
-              {products.map((product, index) => (
+              {products.map((product) => (
               <tr key={product.id} className={product.active ? styles.active : styles.inactive}>
                 <td>{product.title}</td>
                 <td>{product.price}</td>
@@ -60,7 +60,7 @@ function MaintainProducts() {
                 <td>{product.rating.rate}</td>
                 <td>{product.rating.count}</td>
                 <td><button onClick={() => deleteProduct(product.id)}>DELETE</button></td>
-                <td> <Link to={"/admin/edit-product/" + index}>  <button>CHANGE </button> </Link></td>
+                <td> <Link to={"/admin/edit-product/" + product.id}>  <button>CHANGE </button> </Link></td>
 
               </tr>
               ))}

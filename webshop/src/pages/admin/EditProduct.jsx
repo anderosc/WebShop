@@ -1,61 +1,59 @@
 import { Link, useParams } from "react-router-dom"
 import productsData from "../../data/products.json"
-import { useRef } from "react";
-import styles from "../../css/Cart.module.css"
+import categories from "../../data/categories.json"
+import { useState } from "react";
 
 
 function EditProduct() {
   // JSON.stringify(product)
-  const {index} = useParams();
-  const found = productsData[index]
-  const idRef = useRef();
-  const titleRef = useRef();
-  const priceRef = useRef();
-  const descriptionRef = useRef();
-  const categoryRef = useRef();
-  const imageRef = useRef();
-  const ratingRateRef = useRef();
-  const ratingCountRef = useRef();
+  const {id} = useParams();
+  const found = productsData.find(product => product.id == Number(id))
+  const [product, setProduct] = useState(found); 
 
   const change = () => {
-    productsData[index] = {
-      "id": idRef.current.value,
-      "title": titleRef.current.value,
-      "price": priceRef.current.value,
-      "description": descriptionRef.current.value,
-      "category": categoryRef.current.value,
-      "image": imageRef.current.value,
-      "rating": {
-        "rate": ratingRateRef.current.value,
-        "count": ratingCountRef.current.value
-      }
-    };
+    const productIndex = productsData.findIndex(product => product.id === Number(id))
+    productsData[productIndex] = product; 
+    }
+
+  if(!found){
+    return <div>Product not found</div>
   }
+
+ 
 
   return (
     <div>
-    <label htmlFor=""> Id:</label>
 
-
-    {/* useRef asemel */}
-    {/* <input  onChange={(e) => setProducts({...product,  "image" : e.target.value})} type="text" defaultValue={found.id} /> <br /> */}
-    {/* ...product sama mis product => usestate sees */}
-
-    <input ref={idRef} type="text" defaultValue={found.id} /> <br />
-    <label htmlFor=""> Title:</label>
-    <input ref={titleRef} type="text" defaultValue={found.title} /> <br />
-    <label htmlFor=""> Price:</label>
-    <input ref={priceRef} type="text" defaultValue={found.price} /> <br />
-    <label htmlFor=""> Description:</label>
-    <input ref={descriptionRef} type="text" defaultValue={found.description} /> <br />
-    <label htmlFor=""> Category:</label>
-    <input ref={categoryRef} type="text" defaultValue={found.category} /> <br />
-    <label htmlFor=""> Image:</label>
-    <input ref={imageRef} type="text" defaultValue={found.image} /> <br />
-    <label htmlFor=""> Rating Rate:</label>
-    <input ref={ratingRateRef} type="text" defaultValue={found.rating.rate} /> <br />
-    <label htmlFor=""> Rating Count:</label>
-    <input ref={ratingCountRef} type="text" defaultValue={found.rating.count} /> <br />
+    <label htmlFor=""> Id:</label> <br />
+    <input onChange={(e) => setProduct({...product, "id" : e.target.value})} type="text" defaultValue={found.id} /> <br />
+    
+    <label htmlFor=""> Title:</label> <br />
+    <input onChange={(e) => setProduct({...product, "title" : e.target.value})} type="text" defaultValue={found.title} /> <br />
+    
+    <label htmlFor=""> Price:</label> <br />
+    <input onChange={(e) => setProduct({...product, "price" : e.target.value})} type="text" defaultValue={found.price} /> <br />
+    
+    <label htmlFor=""> Description:</label> <br />
+    <input onChange={(e) => setProduct({...product, "description" : e.target.value})} type="text" defaultValue={found.description} /> <br />
+    
+    <label htmlFor="">Category:</label> <br />
+    <select defaultValue="Default" onChange={(e) => setProduct({...product, "category" : e.target.value})}>
+      <option value="Default" disabled> Select category</option>
+      {categories.map(category =>
+        <option key={category}> {category}</option>
+      )}
+    </select> <br />
+    
+    <label htmlFor=""> Image:</label> <br />
+    <input onChange={(e) => setProduct({...product, "image" : e.target.value})} type="text" defaultValue={found.image} /> <br />
+    
+    <label htmlFor=""> Rating Rate:</label> <br />
+    <input onChange={(e) => setProduct({...product, "rating" : {"rate" : e.target.value, "count" : product.rating.count}})} 
+    type="number" defaultValue={found.rating.rate} /> <br />
+    
+    <label htmlFor=""> Rating Count:</label> <br />
+    <input onChange={(e) => setProduct({...product, "rating" : {"rate" : product.rating.rate, "count" : e.target.value}})} 
+    type="number" defaultValue={found.rating.count} /> <br />
 
     <Link to="/admin/maintain-products"> 
     <button onClick={change}> CHANGE </button>
