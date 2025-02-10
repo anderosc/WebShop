@@ -1,18 +1,26 @@
-import { Link, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import productsData from "../../data/products.json"
 import categories from "../../data/categories.json"
 import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
 
 
 function EditProduct() {
   // JSON.stringify(product)
   const {id} = useParams();
   const found = productsData.find(product => product.id == Number(id))
-  const [product, setProduct] = useState(found); 
+  const [product, setProduct] = useState(found);
+  const navigate = useNavigate();
 
   const change = () => {
+    if(product.price < 0){
+      toast.error("Hind ei saa olla negatiivne");
+      return;
+    }
     const productIndex = productsData.findIndex(product => product.id === Number(id))
     productsData[productIndex] = product; 
+
+    navigate("/admin/maintain-products")
     }
 
   if(!found){
@@ -55,9 +63,20 @@ function EditProduct() {
     <input onChange={(e) => setProduct({...product, "rating" : {"rate" : product.rating.rate, "count" : e.target.value}})} 
     type="number" defaultValue={found.rating.count} /> <br />
 
-    <Link to="/admin/maintain-products"> 
+    
     <button onClick={change}> CHANGE </button>
-    </Link>
+
+    <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={true}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        theme="light"
+      />
 
     </div>
   )

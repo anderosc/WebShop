@@ -16,5 +16,3 @@ createRoot(document.getElementById('root')).render(
   </StrictMode>,
 )
 
-//koju
-//editproduct lopetada, Carousel-gallery pildi failist, tõlge. bakery-Shop (fail drives)

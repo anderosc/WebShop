@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import CarouselGallery from "../../components/CarouselGallery";
 import styles from "../../css/Homepage.module.css"
 import { useTranslation } from 'react-i18next';
+import SortButtons from "../../components/SortButtons";
 
 function HomePage() {
   const { t } = useTranslation();
@@ -25,24 +26,7 @@ function HomePage() {
       toast(t("homepage_product_added"));
   }
 
-  const sortAZ = () => {
-    setProducts(products.toSorted((a, b) => a.title.localeCompare(b.title)));
-  };
-  const sortZA = () => {
-    setProducts(products.toSorted((a, b) => b.title.localeCompare(a.title)));
-  };
-  const sortPriceHighToLow = () => {
-    setProducts(products.toSorted((a, b) => b.price - a.price));
-  };
-  const sortPriceLowToHigh = () => {
-    setProducts(products.toSorted((a, b) => a.price - b.price));
-  };
-  const sortRatingHTL = () => {
-    setProducts(products.toSorted((a, b) => b.rating.rate - a.rating.rate));
-  };
-  const sortRatingLTH = () => {
-    setProducts(products.toSorted((a, b) => a.rating.rate - b.rating.rate));
-  };
+
 
   const filterElectronics = () => {
     setProducts(products.filter(product => product.category.includes("electronics")));
@@ -60,13 +44,8 @@ function HomePage() {
   return (
     <div>
       <CarouselGallery />
-      <button onClick={sortAZ}>{t("homepage_sort_az")}</button> 
-      <button onClick={sortZA}>{t("homepage_sort_za")}</button>
-      <button onClick={sortPriceHighToLow}>{t("homepage_sort_price_desc")}</button>
-      <button onClick={sortPriceLowToHigh}>{t("homepage_sort_price_asc")}</button>
-      <button onClick={sortRatingHTL}>{t("homepage_sort_rating_desc")}</button>
-      <button onClick={sortRatingLTH}>{t("homepage_sort_rating_asc")}</button>
-      
+
+      <SortButtons products={products} setProducts={setProducts}/>
       <br />
       <div>{t("homepage_filter")}:</div>
       <button onClick={filterElectronics}>{t("homepage_filter_electronics")}</button>

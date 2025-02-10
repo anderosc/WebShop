@@ -45,8 +45,8 @@ function NavigationBar() {
           
           <Nav>
           <select onChange={changeLang} value={i18n.language}>
-              <option value="eng">🇬🇧 ENG</option>
-              <option value="et">🇪🇪 ET</option>
+              <option value="eng"> ENG</option>
+              <option value="et"> ET</option>
               <option value="fin">🇫🇮 FIN</option>
               <option value="de">🇩🇪 DE</option>
             </select>

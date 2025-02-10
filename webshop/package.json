@@ -15,7 +15,7 @@
     "@emotion/styled": "^11.14.0",
     "@mui/material": "^6.4.2",
     "bootstrap": "^5.3.3",
-    "firebase": "^11.2.0",
+    "firebase": "^11.3.0",
     "i18next": "^24.2.2",
     "leaflet": "^1.9.4",
     "react": "^19.0.0-rc.1",

@@ -3,6 +3,7 @@ import productsFile from "../../data/products.json"
 import { useRef, useState } from "react"
 import styles from "../../css/MaintainProducts.module.css"
 import { Link } from "react-router-dom";
+import Payment from "../../components/Payment";
 
 
 function MaintainProducts() {
@@ -31,6 +32,7 @@ function MaintainProducts() {
 
   return (
     <div>
+      Maksa hankijale 100€ <Payment sum={100}/>
       <div>SEARCH:</div>
       <input type="text" onChange={search} ref={searchInput}  />
       <div>Total products: {products.length}</div>

@@ -30,8 +30,7 @@ function Shops() {
       <button onClick={() => setCenterAndZoom(58.43393013780767, 24.744218397460667, 7)}>All</button>
       {/* onclick sees peab ilmumavaid selle linna poed */}
       <button onClick={() => setCenterAndZoom(59.43393013780767, 24.744218397460667, 12)}>Tallinn</button>
-      <button onClick={() => setCenterAndZoom(58.43393013780767, 26.724, 10)}>Tartu</button>
-      <button >Saaremaa</button> <br />
+      <button onClick={() => setCenterAndZoom(58.43393013780767, 26.724, 10)}>Tartu</button> <br />
 
 
       {/* Kui valitakse tallinn, siis näidatakse ainult tallinna poode */}

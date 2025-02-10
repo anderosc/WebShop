@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import styles from "../../css/Cart.module.css"
+import Payment from "../../components/Payment";
 
 
 function Cart() {
@@ -88,6 +89,10 @@ function Cart() {
       <button onClick={() => setParcleMachineCountry("EE")}>EE</button>
       <button onClick={() => setParcleMachineCountry("LV")}>LV</button>
       <button onClick={() => setParcleMachineCountry("LT")}>LT</button>
+      <br />
+      { calculateTotal() < 7000 ? 
+      <Payment sum={calculateTotal()} /> :
+      <div>Summa liiga suur </div>}
     </div>
   )
 }
