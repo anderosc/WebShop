@@ -6,8 +6,11 @@ import CarouselGallery from "../../components/CarouselGallery";
 import styles from "../../css/Homepage.module.css"
 import { useTranslation } from 'react-i18next';
 import SortButtons from "../../components/SortButtons";
+import { useContext } from "react";
+import { CartSumContext } from "../../store/CartSumContext";
 
 function HomePage() {
+  const {increase} = useContext(CartSumContext)
   const { t } = useTranslation();
   const [products, setProducts] = useState(productsFromFile);
 
@@ -23,6 +26,7 @@ function HomePage() {
       }
 
       localStorage.setItem("cart", JSON.stringify(cartLocalStorage));
+      increase(productClicked.price);
       toast(t("homepage_product_added"));
   }
 

@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react"
 import styles from "../../css/Cart.module.css"
 import Payment from "../../components/Payment";
+import { useContext } from "react";
+import { CartSumContext } from "../../store/CartSumContext";
 
 
 function Cart() {
+  const {decrease, increase, empty} = useContext(CartSumContext)
   const [products, setProduct] = useState(JSON.parse(localStorage.getItem("cart")) || []);
   const [parcelMachines, setParcelMachines] = useState([]);
   const [parcelMachineCountry, setParcleMachineCountry] = useState("EE")
@@ -15,16 +18,21 @@ function Cart() {
   }, []);
 
   const removeProduct = (index) => {
+    decrease(products[index].toode.price * products[index].kogus)
     products.splice(index, 1);
     setProduct(products.slice());
-    localStorage.setItem("cart", JSON.stringify(products));  
+    localStorage.setItem("cart", JSON.stringify(products));
+    decrease(products)  
   }
   const increaseQuantity = (product) =>{
+    increase(product.toode.price)
     product.kogus++;
     setProduct(products.slice());
     localStorage.setItem("cart", JSON.stringify(products)); 
   }
   const decreaseQuantity = (product) =>{
+    decrease(product.toode.price )
+
     product.kogus--;
     if(product.kogus === 0){
       const index = products.indexOf(product); // terve objekti abil indexi leidmne
@@ -36,6 +44,7 @@ function Cart() {
   }
 
   const deleteAll = () =>{
+    empty();
     setProduct([]);
     localStorage.setItem("cart", JSON.stringify([]));
   }

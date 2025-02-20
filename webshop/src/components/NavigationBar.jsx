@@ -1,16 +1,30 @@
+import { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../store/AuthContext';
+import { CartSumContext } from '../store/CartSumContext';
 
 function NavigationBar() {
+  const {loggedIn, setLoggedIn} = useContext(AuthContext);
+  const {cartSum} = useContext(CartSumContext);
+
+  const navigate = useNavigate();
+
     const { t , i18n} = useTranslation();
 
     const changeLang = (event) => {
       i18n.changeLanguage(event.target.value);
     };
+
+  const logout = () =>{
+    setLoggedIn(false)
+    sessionStorage.removeItem("token")
+    navigate("/")
+  }
    
   
   return (
@@ -30,15 +44,15 @@ function NavigationBar() {
 
 
 
-            <NavDropdown title="Admin" id="basic-nav-dropdown">
+           { loggedIn === true && 
+           <NavDropdown title="Admin" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to="/admin">Admin</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/admin/add-product">{t('navbar_add_product')}</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/admin/maintain-products">{t('navbar_maintain_products')}</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/admin/maintain-categories">{t(`navbar_maintain_categories`)}</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/admin/maintain-shops">{t(`navbar_maintain_shops`)}</NavDropdown.Item>
+            </NavDropdown>}
 
-
-            </NavDropdown>
           </Nav>
 
 
@@ -51,9 +65,17 @@ function NavigationBar() {
               <option value="de">🇩🇪 DE</option>
             </select>
             <br />
+           { loggedIn === false ?
+            <>
           <Nav.Link as={Link} to="/login">{t(`navbar_login`)}  </Nav.Link> 
           <Nav.Link as={Link} to="/signup">{t(`navbar_signup`)} </Nav.Link>
+          </> : 
+          <>
+          <Nav.Link onClick={logout}> LogOut </Nav.Link>
+          </>}
           </Nav>
+          <Nav.Link > {cartSum.toFixed(2)} € </Nav.Link>
+
 
         </Navbar.Collapse>
       </Container>

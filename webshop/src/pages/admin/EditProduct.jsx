@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import productsData from "../../data/products.json"
 import categories from "../../data/categories.json"
 import { useState } from "react";
