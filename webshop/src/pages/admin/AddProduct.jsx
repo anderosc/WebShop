@@ -1,6 +1,6 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import productsFromFile from "../../data/products.json"
-import categoriesDATA from "../../data/categories.json"
+// import categoriesDATA from "../../data/categories.json"
 
 function AddProduct() {
 
@@ -14,6 +14,13 @@ function AddProduct() {
   const ratingCountRef = useRef();
 
   const [message, setMessage] = useState("Add product");
+  const [categories, setCategories] = useState([])
+
+  useEffect(() =>{
+    fetch("http://localhost:8090/categories")
+    .then(res => res.json())
+    .then(json => setCategories(json))
+  }, []);
 
   const addProduct = () =>{
     if (idRef.current.value === "") {
@@ -99,7 +106,7 @@ function AddProduct() {
         {/* <input type="text" ref={categoryRef}  /> <br /> <br /> */}
         <select defaultValue="1" ref={categoryRef}>
           <option disabled value="1">Select category</option>
-        {categoriesDATA.map(category =>
+        {categories.map(category =>
           <option key={category} >{category}</option>
         )}
         </select> <br /> <br />

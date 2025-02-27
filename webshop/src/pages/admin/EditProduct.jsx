@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom"
 import productsData from "../../data/products.json"
-import categories from "../../data/categories.json"
-import { useState } from "react";
+// import categories from "../../data/categories.json"
+import { useEffect, useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 
 
@@ -11,6 +11,13 @@ function EditProduct() {
   const found = productsData.find(product => product.id == Number(id))
   const [product, setProduct] = useState(found);
   const navigate = useNavigate();
+    const [categories, setCategories] = useState([])
+  
+    useEffect(() =>{
+      fetch("http://localhost:8090/categories")
+      .then(res => res.json())
+      .then(json => setCategories(json))
+    }, []);
 
   const change = () => {
     if(product.price < 0){
