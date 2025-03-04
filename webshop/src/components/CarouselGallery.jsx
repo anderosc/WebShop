@@ -1,45 +1,38 @@
+import { useEffect, useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 // import pictures from "../data/pictures.json"
 
 function CarouselGallery() {
+  const [pictures, setPictures] = useState([])
+
+  useEffect(() => {
+    fetch("http://localhost:8090/pictures")
+    .then(res => res.json())
+    .then(json => setPictures(json))
+    
+  }, []);
+  
+
   return (
+    <div>
     <Carousel data-bs-theme="dark">
-      <Carousel.Item>
-        <img
-
-          src="https://picsum.photos/id/231/500/200"
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h5>First slide label</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-
-          src="https://picsum.photos/id/235/500/200"
-          alt="Second slide"
-        />
-        <Carousel.Caption>
-          <h5>Second slide label</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-
-          src="https://picsum.photos/id/235/500/200"
-          alt="Third slide"
-        />
-        <Carousel.Caption>
-          <h5>Third slide label</h5>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
+      {pictures.map(picture =>
+      
+         <Carousel.Item key={picture.id}>
+         <img
+ 
+           src={picture.src}
+           alt={picture.alt}
+         />
+         <Carousel.Caption>
+           <h5>{picture.header}</h5>
+           <p>{picture.text}</p>
+         </Carousel.Caption>
+       </Carousel.Item>
+      )}
+     
     </Carousel>
+    </div>
   );
 }
 

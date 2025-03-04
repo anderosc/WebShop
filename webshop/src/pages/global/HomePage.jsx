@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
-import productsFromFile from "../../data/products.json"
+// import productsFromFile from "../../data/products.json"
 import { ToastContainer, toast } from 'react-toastify';
 import CarouselGallery from "../../components/CarouselGallery";
 import styles from "../../css/Homepage.module.css"
@@ -12,7 +12,14 @@ import { CartSumContext } from "../../store/CartSumContext";
 function HomePage() {
   const {increase} = useContext(CartSumContext)
   const { t } = useTranslation();
-  const [products, setProducts] = useState(productsFromFile);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+      fetch("http://localhost:8090/products")
+      .then(res => res.json())
+      .then(json => setProducts(json))
+      
+    }, []);
 
   const addToCart = (productClicked) =>{
       const cartLocalStorage = JSON.parse(localStorage.getItem("cart")) || [];

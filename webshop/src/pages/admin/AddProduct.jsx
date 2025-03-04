@@ -4,7 +4,6 @@ import productsFromFile from "../../data/products.json"
 
 function AddProduct() {
 
-  const idRef = useRef();
   const titleRef = useRef();
   const priceRef = useRef();
   const descriptionRef = useRef();
@@ -23,10 +22,7 @@ function AddProduct() {
   }, []);
 
   const addProduct = () =>{
-    if (idRef.current.value === "") {
-      setMessage("Id is missing");
-      return;
-    }
+   
     if (titleRef.current.value === "") {
       setMessage("Title is missing");
       return;
@@ -57,30 +53,46 @@ function AddProduct() {
     }
 
     const product = {
-      "id": idRef.current.value ,
       "title": titleRef.current.value,
       "price": priceRef.current.value,
       "description": descriptionRef.current.value,
       "category": categoryRef.current.value,
       "image": imageRef.current.value,
-      "rating": {
-          "rate": ratingRateRef.current.value,
-          "count": ratingCountRef.current.value
-      }
+ 
   }
 
-    productsFromFile.push(product);
+  fetch("http://localhost:8090/products", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(product),
+  })
+    .then(response => response.json())
+    .then(data => {
+      // Clear the form fields
+      titleRef.current.value = "";
+      priceRef.current.value = "";
+      descriptionRef.current.value = "";
+      categoryRef.current.value = "";
+      imageRef.current.value = "";
+      ratingRateRef.current.value = "";
+      ratingCountRef.current.value = "";
+    })
+    .catch(error => {
+      setMessage("Error adding product");
+      console.error("Error:", error);
+    });
+
     setMessage("Toode lisatud!");
 
 
-    idRef.current.value = "";
     titleRef.current.value = "";
     priceRef.current.value = "";
     descriptionRef.current.value = "";
     categoryRef.current.value = "";
     imageRef.current.value = "";
-    ratingRateRef.current.value = "";
-    ratingCountRef.current.value = "";
+
   };
 
 
@@ -90,8 +102,6 @@ function AddProduct() {
     <div>
       
       <p>Add Product:</p><br /> <br />
-        <div>Id</div> 
-        <input type="text" ref={idRef} /> <br /> <br />
 
         <div>Title</div>
         <input type="text"  ref={titleRef} /> <br /> <br />
