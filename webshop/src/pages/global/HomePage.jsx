@@ -8,16 +8,26 @@ import { useTranslation } from 'react-i18next';
 import SortButtons from "../../components/SortButtons";
 import { useContext } from "react";
 import { CartSumContext } from "../../store/CartSumContext";
+// import categories from "../../data/categories.json"
 
 function HomePage() {
   const {increase} = useContext(CartSumContext)
   const { t } = useTranslation();
   const [products, setProducts] = useState([]);
+  const [categories, setCategory] = useState([]);
+
 
   useEffect(() => {
       fetch("http://localhost:8090/products")
       .then(res => res.json())
       .then(json => setProducts(json))
+      
+    }, []);
+
+    useEffect(() => {
+      fetch("http://localhost:8090/categories")
+      .then(res => res.json())
+      .then(json => setCategory(json))
       
     }, []);
 
@@ -39,18 +49,21 @@ function HomePage() {
 
 
 
-  const filterElectronics = () => {
-    setProducts(products.filter(product => product.category.includes("electronics")));
+  const filterByCategory = (category) => {
+    // setProducts(products.filter(product => product.category.includes("electronics")));
+      fetch("http://localhost:8090/products-by-category?category=" + category)
+      .then(res => res.json())
+      .then(json => setProducts(json))
   };
-  const filterJewelery = () => {
-    setProducts(products.filter(product => product.category.includes("jewelery")));
-  };
-  const filterMensClothing = () => {
-    setProducts(products.filter(product => product.category.includes("men's clothing")));
-  };
-  const filterWomensClothing = () => {
-    setProducts(products.filter(product => product.category.includes("women's clothing")));
-  };
+  // const filterJewelery = () => {
+  //   // setProducts(products.filter(product => product.category.includes("jewelery")));
+  // };
+  // const filterMensClothing = () => {
+  //   // setProducts(products.filter(product => product.category.includes("men's clothing")));
+  // };
+  // const filterWomensClothing = () => {
+  //   // setProducts(products.filter(product => product.category.includes("women's clothing")));
+  // };
 
   return (
     <div>
@@ -59,13 +72,16 @@ function HomePage() {
       <SortButtons products={products} setProducts={setProducts}/>
       <br />
       <div>{t("homepage_filter")}:</div>
-      <button onClick={filterElectronics}>{t("homepage_filter_electronics")}</button>
-      <button onClick={filterWomensClothing}>{t("homepage_filter_womens_clothing")}</button>
-      <button onClick={filterMensClothing}>{t("homepage_filter_mens_clothing")}</button>
-      <button onClick={filterJewelery}>{t("homepage_filter_jewelery")}</button>
+      {/* <button onClick={() => filterByCategory}>{t("men's clothing")}</button>
+      <button onClick={() => filterByCategory}>{t("homepage_filter_womens_clothing")}</button>
+      <button onClick={() => filterByCategory}>{t("homepage_filter_mens_clothing")}</button>
+      <button onClick={() => filterByCategory}>{t("homepage_filter_jewelery")}</button> */}
+      {categories.map(category =>
+              <button key={category} onClick={() => filterByCategory(category)}>{category}</button>
+      )}
 
       <br />
-      {products.map((product) => 
+      {products.sort((a,b) => a.id - b.id).map((product) => 
         <div key={product.id}>
           <img className={product.active ? styles.image : styles.inactive_image} src={product.image} alt="" />
           <div>{product.title}</div>

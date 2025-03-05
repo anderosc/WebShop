@@ -65,11 +65,12 @@ function AddProduct() {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      // Authorization : "Bearer " + sessionStorage.getItem("LokiAuthToken")
     },
     body: JSON.stringify(product),
   })
     .then(response => response.json())
-    .then(data => {
+    .then(() => {
       // Clear the form fields
       titleRef.current.value = "";
       priceRef.current.value = "";
@@ -78,20 +79,13 @@ function AddProduct() {
       imageRef.current.value = "";
       ratingRateRef.current.value = "";
       ratingCountRef.current.value = "";
-    })
+    },
+    setMessage("Toode lisatud!")
+  )
     .catch(error => {
       setMessage("Error adding product");
       console.error("Error:", error);
     });
-
-    setMessage("Toode lisatud!");
-
-
-    titleRef.current.value = "";
-    priceRef.current.value = "";
-    descriptionRef.current.value = "";
-    categoryRef.current.value = "";
-    imageRef.current.value = "";
 
   };
 
