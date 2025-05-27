@@ -3,7 +3,7 @@
 
 **Webshop** is a web application for online store that allows users to manage cart, admins can add and delete categories, products or change them.
 
-<a href="https://averagepage-d3ced.web.app/" target="_blank">Link to demo webpage</a>
+<a href="https://brainy-e3281.web.app/home" target="_blank">Link to demo webpage</a>
 
 
 ## Features
